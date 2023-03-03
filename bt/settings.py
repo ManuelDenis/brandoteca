@@ -84,19 +84,7 @@ WSGI_APPLICATION = 'bt.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'USER': 'postgres',
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'bt',
-            'PASSWORD': 'admin',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
-else:
-    DATABASES = {
+DATABASES = {
         'default': {
             'USER': 'xktlkeqrqatgjq',
             'ENGINE': 'django.db.backends.postgresql',
