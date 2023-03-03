@@ -28,7 +28,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 DEBUG = False
 
 ALLOWED_HOSTS = ['https://brandoteca.herokuapp.com/', '127.0.0.1:8000']
-
+CSRF_TRUSTED_ORIGINS = ['https://brandoteca.herokuapp.com']
 
 # Application definition
 
