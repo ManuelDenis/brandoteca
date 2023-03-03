@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js">
 <!--<![endif]-->
-
+{% load socialaccount %}
 <head>
 	<title>Brandoteca</title>
 	<meta charset="utf-8">
@@ -126,14 +126,14 @@
              {% if request.user.is_authenticated %}
 
                   <li class="menu-item">
-                  <a href="{% url 'account_logout' %}" class="text-danger menu-link">
+                  <a href="{% url 'account_logout' %}" class="text-danger menu-link small">
                     Logout
                   </a>
                 </li>
 
                   {% else %}
                 <li class="menu-item">
-                  <a href="{% url 'account_login' %}" class="text-warning menu-link">
+                  <a href="{% url 'account_login' %}" class="text-warning menu-link small">
                     <div data-i18n="Basic">Login</div>
                   </a>
                 </li>
@@ -143,6 +143,10 @@
                     <div data-i18n="Basic">Register</div>
                   </a>
                 </li>
+
+                 <li class="menu_item">
+                   <a class="menu-link small bg-primary rounded" href="{% provider_login_url 'google' %}">Sign in with <img src="https://img.icons8.com/color/16/000000/google-logo.png"></a>
+                 </li>
 
                   {% endif %}
 
