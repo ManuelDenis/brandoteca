@@ -98,8 +98,12 @@ if not DEBUG:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'USER': 'xktlkeqrqatgjq',
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'd9rq9om3kgsivj',
+            'PASSWORD': '853f37147dacc5b1cfd1dc13e010516e130d84df8c4a53a311e9825728e0dc40',
+            'HOST': 'ec2-3-211-6-217.compute-1.amazonaws.com',
+            'PORT': '5432',
         }
     }
 
