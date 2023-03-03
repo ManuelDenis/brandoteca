@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}Brandoteca | Register{% endblock %}
+
+
+{% block preloader %}
+{% endblock preloader %}
+{% block content %}
+
+    <!-- Content -->
+
+    <div class="container-xxl my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+
+              <h3 class="mb-4 text-center mt-5">Sign up</h3>
+              <p class="text-center">
+                <span>Already have an account?</span>
+                <a href="{% url 'account_login' %}">
+                  <span class="bolder text-primary"><br>Sign in</span>
+                </a>
+              </p>
+
+             <form class="py-5 p-3" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+    {{ form|crispy }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button type="submit" class="new-button d-grid w-30">{% trans "Sign Up" %}</button>
+</form>
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

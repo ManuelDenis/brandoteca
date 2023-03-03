@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load socialaccount %}
+{% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}Brandoteca | Login{% endblock %}
+
+
+{% block preloader %}
+{% endblock preloader %}
+{% block content %}
+
+    <div class="container my-5">
+      <div class="container-p-y">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+              <h3 class="text-center mt-5">Sign in</h3>
+             <p class="text-center">
+                <span>New on our platform?</span>
+                <a href="{% url 'account_signup' %}">
+                  <span class="bolder text-info"><br>Create an account</span>
+                </a>
+                 <br>or<br>
+              </p>
+                           <div class="row text-center">
+                                <div class="col-md-12">
+                                    <a class="btn-block btn-outline text-light bg-danger py-1" href="{% provider_login_url 'google' %}"><img src="https://img.icons8.com/color/16/000000/google-logo.png">Sign in with <strong>Google</strong></a>
+                                </div>
+                            </div>
+
+                      <form class="py-2 p-3" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+   {{ form|crispy }}
+<br>
+    <a href="{% url 'account_reset_password' %}">Forgot password?</a>
+
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+<button class="new-button d-grid w-30" type="submit">{% trans "Sign In" %}</button><br><br>
+
+</form>
+
+
+            </div>
+          </div>
+
+            </div>
+        </div>
+
+
+{% endblock %}
