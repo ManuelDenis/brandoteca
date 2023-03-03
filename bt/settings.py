@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 import django_heroku
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -54,6 +55,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -86,15 +88,15 @@ WSGI_APPLICATION = 'bt.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-        'default': {
-            'USER': 'fhthvwumskgpnn',
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'df83um0doqrc3n',
-            'PASSWORD': 'e68a998355b58ae6463c37a4a0bb7a7b20a4b346ee05da011c4001e10f61ba12',
-            'HOST': 'ec2-34-197-84-74.compute-1.amazonaws.com',
-            'PORT': '5432',
-        }
+    'default': {
+        'USER': 'fhthvwumskgpnn',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'df83um0doqrc3n',
+        'PASSWORD': 'e68a998355b58ae6463c37a4a0bb7a7b20a4b346ee05da011c4001e10f61ba12',
+        'HOST': 'ec2-34-197-84-74.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
