@@ -94,12 +94,25 @@ Border color for elements in color section: rgba(255, 255, 255, 0.15)
 }
 
 .new-button {
-	background: orangered;
-	color: lightcyan;
-	padding: 12px 17px 12px 17px;
-	margin: 10px 10px 10px 0;
-	border-radius: 25px;
+	background: #8102e7;
 	border-style: none;
+	border-radius: 15px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 15px;
+	font-family: Montserrat, sans-serif;
+	font-weight: 700;
+	padding: 7px 15px;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+form {
+	background-image: linear-gradient(rgba(205, 255, 249, 0.42), rgba(0, 191, 255, 0.49));
+	padding: 20px;
+	border-radius: 25px;
+	margin-top: 25px;
+	font-family: Montserrat, sans-serif;
 }
 
 .new-login {
@@ -666,7 +679,7 @@ textarea,
 select,
 .form-control {
     border-style: none;
-	background: rgba(159, 241, 255, 0.22);
+	background: rgb(242, 255, 253);
 	border-radius: 15px;
 	padding: 10px 0 10px 15px;
 }
@@ -682,17 +695,15 @@ button {
 
 input[type="submit"],
 button {
-	background: #ff497c;
-	border: 4px solid #ff497c;
-	border-radius: 50px;
+	background: #8102e7;
+	border-style: none;
+	border-radius: 35px;
 	color: #fff;
 	cursor: pointer;
-	font-size: 12px;
+	font-size: 15px;
+	font-family: Montserrat, sans-serif;
 	font-weight: 700;
-	letter-spacing: 0.2em;
-	line-height: 1.6em;
-	padding: 26px 40px;
-	text-transform: uppercase;
+	padding: 7px 15px;
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
@@ -816,10 +827,8 @@ form label + [class*="fa-"] + .form-control {
 }
 
 label {
-	font-size: 12px;
-	font-weight: 700;
-	line-height: 1.6em;
-	text-transform: uppercase;
+	font-size: 17px;
+	text-transform: capitalize;
 }
 
 .checkbox label,

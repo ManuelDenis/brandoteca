@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://brandoteca.herokuapp.com/', '127.0.0.1:8000/admin', '127.0.0.1', 'localhost']
 CSRF_TRUSTED_ORIGINS = ['https://brandoteca.herokuapp.com']
@@ -119,3 +119,12 @@ ACCOUNT_UNIQUE_EMAIL = True
 
 if not DEBUG:
     django_heroku.settings(locals())
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_APY_KEY')
+
+# The email you'll be sending emails from
+DEFAULT_FROM_EMAIL = os.getenv('FROM_EMAIL', default='noreply@gmail.com')
