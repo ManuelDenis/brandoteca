@@ -11,7 +11,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://brandoteca.herokuapp.com/', '127.0.0.1:8000/admin', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['https://brandoteca.herokuapp.com/', 'brandoteca.herokuapp.com', '127.0.0.1:8000/admin', '127.0.0.1', 'localhost']
 CSRF_TRUSTED_ORIGINS = ['https://brandoteca.herokuapp.com']
 
 INSTALLED_APPS = [
