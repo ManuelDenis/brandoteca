@@ -93,24 +93,27 @@ Border color for elements in color section: rgba(255, 255, 255, 0.15)
 	font-family: Montserrat, sans-serif;
 }
 
+.menu-item {
+	color: #0B0B0B;
+}
+
 .new-button {
-	background: #8102e7;
+	background: #677793;
 	border-style: none;
-	border-radius: 15px;
+	border-radius: 10px;
 	color: #fff;
 	cursor: pointer;
 	font-size: 15px;
 	font-family: Montserrat, sans-serif;
 	font-weight: 700;
-	padding: 7px 15px;
+	padding: 4px 30px 4px 30px;
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
 
 form {
-	background-image: linear-gradient(rgba(205, 255, 249, 0.42), rgba(0, 191, 255, 0.49));
-	padding: 20px;
-	border-radius: 25px;
+	padding: 25px;
+	border-radius: 12px;
 	margin-top: 25px;
 	font-family: Montserrat, sans-serif;
 }
@@ -679,8 +682,8 @@ textarea,
 select,
 .form-control {
     border-style: none;
-	background: rgb(242, 255, 253);
-	border-radius: 15px;
+	background: rgb(232, 236, 255);
+	border-radius: 10px;
 	padding: 10px 0 10px 15px;
 }
 
@@ -1004,7 +1007,7 @@ input[type="radio"]:disabled + label:before {
 }
 
 .nav-link {
-	color: #323232;
+	color: #0e0000;
 	font-size: 12px;
 	font-weight: 700;
 	letter-spacing: 0.2em;
@@ -6969,8 +6972,9 @@ body.boxed {
 }
 
 .btn-maincolor {
-	background-color: #ff497c;
-	border: 4px solid #ff497c;
+	background-color: #ffc04d;
+	border-style: none;
+	color: #0c0c0c;
 }
 
 .btn-maincolor2 {

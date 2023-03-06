@@ -21,7 +21,7 @@
                 <a class="btn-block btn-outline" href="{% provider_login_url 'google' %}"><img src="https://img.icons8.com/color/16/000000/google-logo.png">Sign in with <strong>Google</strong></a>
                 </p>
 
-                <form class="shadow" method="POST" action="{% url 'account_login' %}">
+                <form method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <a href="{% url 'account_reset_password' %}">Forgot password?</a>

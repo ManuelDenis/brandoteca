@@ -7,6 +7,7 @@
 <!--<![endif]-->
 {% load socialaccount %}
 {% load account socialaccount %}
+
 <head>
 	<title>Brandoteca</title>
 	<meta charset="utf-8">
@@ -22,7 +23,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
 
 
 
@@ -62,7 +66,7 @@
 			<!--topline section visible only on small screens|-->
 			<nav class="navbar navbar-dark bg-dark fixed-top" style="font-family: Montserrat, sans-serif">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'index' %}">Brandoteca</a>
+    <a class="navbar-brand" href="{% url 'index' %}"><img src="/static/images/brandotecalogowhite.png" alt="" style="height: 25px"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -71,36 +75,45 @@
         <h6 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h6>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body" style="font-weight: 400; background-image: linear-gradient(rgba(7,253,215,0.32), rgba(0,255,196,0.01))">
+      <div class="offcanvas-body text-dark" style="font-weight: 400; background: lightgrey">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item mb-1">
-              <a class="menu-item bolder" href="">Branduri  <span class="badge bg-info rounded-pill">170</span></a>
+              <a class="menu-item bolder text-dark" href="">Branduri  <span class="badge bg-info rounded-pill">170</span></a>
           </li>
             <li class="nav-item mt-3">
-            <a class="menu-item bolder text-warning" href="#">Promotii <span class="badge bg-info rounded-pill">35</span></a>
+            <a class="menu-item bolder text-dark" href="#">Promotii <span class="badge bg-info rounded-pill">35</span></a>
           </li>
         <li class="nav-item mb-1">
-            <a class="menu-item bolder text-warning" href="#">Concursuri <span class="badge bg-info rounded-pill">17</span></a>
+            <a class="menu-item bolder text-dark" href="#">Concursuri <span class="badge bg-info rounded-pill">17</span></a>
           </li>
 
         <div class="row mt-5">
             <div class="col-6">
         <li class="nav-item">
-            <a class="menu-item" href="#">Noutati</a>
+            <a class="menu-item text-dark" href="#">Noutati</a>
           </li>
             <li class="nav-item">
-            <a class="menu-item" href="#">Articole</a>
+            <a class="menu-item text-dark" href="#">Articole</a>
           </li>
             </div>
             <div class="col-6">
         <li class="nav-item">
-            <a class="menu-item" href="#">Blog</a>
+            <a class="menu-item text-dark" href="#">Blog</a>
           </li>
             <li class="nav-item">
-            <a class="menu-item" href="#">Despre</a>
+            <a class="menu-item text-dark" href="#">Despre</a>
           </li>
             </div>
         </div>
+
+        <div class="row mt-2">
+            <div class="col-lg-6">
+                <li class="nav-item">
+            <a class="menu-item text-dark" href="{% url 'message_create' %}">Contact</a>
+          </li>
+            </div>
+        </div>
+
         <br>
              <div class="row py-3 rounded">
 
@@ -108,24 +121,24 @@
 
 
                  <li class="menu-item">
-            <a class="menu-link small text-light" href="#"><i class="bi bi-check-circle-fill text-success"></i> {{ request.user }}</a>
+                  <a href="#" class="menu-link text-light">
+                      <i class="bi bi-check-circle-fill text-dark"></i> {{ request.user|capfirst }}</a>
                  </li>
 
-                  <li class="menu-item">
+                   <li class="menu-item">
                   <a href="{% url 'account_logout' %}" class="menu-link">
-                    <i class="bi bi-x-circle text-danger"></i> Logout
-                  </a>
-                </li>
+                       <i class="bi bi-x-circle text-dark"></i> Logout</a>
+                   </li>
 
                   {% else %}
                 <li class="menu-item">
-                  <a href="{% url 'account_login' %}" class="text-warning menu-link">
+                  <a href="{% url 'account_login' %}" class="text-dark menu-link">
                     <div data-i18n="Basic">Login</div>
                   </a>
                 </li>
 
                 <li class="menu-item">
-                  <a href="{% url 'account_signup' %}" class="menu-link">
+                  <a href="{% url 'account_signup' %}" class="menu-link text-dark">
                     <div data-i18n="Basic">Register</div>
                   </a>
                 </li>
@@ -136,6 +149,7 @@
 
                   {% endif %}
         </div>
+
 
 
         </ul>

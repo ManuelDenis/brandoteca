@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_filters %}
+{% load i18n %}
+{% load crispy_forms_tags %}
 {% block content %}
 
 
@@ -17,13 +19,11 @@
 										<div class="intro_layers_wrapper">
 											<div class="intro_layers">
 												<div class="intro_layer" data-animation="fadeIn">
-													<p class="text-warning" style="font-size: 20px">Un univers de branduri la un click distanta</p>
+													<p class="text-warning bolder" style="font-size: 20px">Un univers de branduri la un click distanta</p>
 												</div>
 
-												<div class="intro_layer" data-animation="slideRight">
-													<h4 class="text-uppercase bolder my-3" style="font-weight: 700; color: #fdeeee">
-														Brandoteca
-													</h4>
+												<div class="intro_layer py-5" data-animation="slideRight">
+														<img src="/static/images/brandotecalogowhite.png" alt="" style="height: 50px">
 												</div>
 												<div class="intro_layer bolder" data-animation="fadeIn">
 													<p>
@@ -828,6 +828,7 @@
 								<br> Green Bay, WI 54304
 							</p>
 						</div>
+
 					</div>
 					<div class="divider-30 d-none d-lg-block"></div>
 					<div class="text-center img-wrap col-md-12 layout-2">
@@ -874,5 +875,27 @@
 			</section>
 
 
+
+    <script type="text/javascript">
+$(document).ready(function(){
+    $("#contactForm").submit(function(e){
+       e.preventDefault();
+       const serializedData = $(this).serialize();
+       $.ajax({
+      		type : 'POST',
+      		url :  "{% url 'message_create' %}",
+      		data : serializedData,
+      		success : function(response){
+      			$("#contactForm")[0].reset();
+                  $("#input_message").text("Message was sent!").show(1000);
+                  $("#input_message").hide(1000);
+            },
+      		error : function(response){
+      			console.log(response)
+      		}
+      	});
+   });
+});
+</script>
 
 {% endblock %}
