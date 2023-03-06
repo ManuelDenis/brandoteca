@@ -685,6 +685,7 @@ select,
 	background: rgb(232, 236, 255);
 	border-radius: 10px;
 	padding: 10px 0 10px 15px;
+	margin-bottom: -18px;
 }
 
 input[disabled] {
