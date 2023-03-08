@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('NAME'),
         'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': os.getenv('HOST') ,
+        'HOST': os.getenv('HOST'),
         'PORT': '5432',
     }
 }
@@ -118,7 +118,7 @@ AUTHENTICATION_BACKENDS = (
 )
 SITE_ID = 1
 SOCIALACCOUNT_QUERY_EMAIL = True
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'

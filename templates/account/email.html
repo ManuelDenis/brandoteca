@@ -1,10 +1,19 @@
-{% extends "account/base.html" %}
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
 
-{% block head_title %}{% trans "E-mail Addresses" %}{% endblock %}
+{% block head_title %}Email{% endblock %}
 
 {% block content %}
+
+    <!-- Content -->
+
+    <div class="container-xxl my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
     <h1>{% trans "E-mail Addresses" %}</h1>
 {% if user.emailaddress_set.all %}
 <p>{% trans 'The following e-mail addresses are associated with your account:' %}</p>
@@ -31,9 +40,9 @@
   {% endfor %}
 
 <div class="buttonHolder">
-      <button class="secondaryAction" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
-      <button class="secondaryAction" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
-      <button class="primaryAction" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
+      <button class="secondaryAction new-button" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
+      <button class="secondaryAction new-button" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
+      <button class="primaryAction new-button" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
 </div>
 
 </fieldset>
@@ -49,10 +58,13 @@
 
     <form method="post" action="{% url 'account_email' %}" class="add_email">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button name="action_add" type="submit">{% trans "Add E-mail" %}</button>
+        {{ form|crispy }}
+        <button name="action_add" class="new-button" type="submit">{% trans "Add E-mail" %}</button>
     </form>
   {% endif %}
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
 

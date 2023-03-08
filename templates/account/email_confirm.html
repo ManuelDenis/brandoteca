@@ -1,12 +1,19 @@
-{% extends "account/base.html" %}
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% load i18n %}
-{% load account %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
 
-{% block head_title %}{% trans "Confirm E-mail Address" %}{% endblock %}
-
+{% block head_title %}Confirm email address{% endblock %}
 
 {% block content %}
+
+    <!-- Content -->
+
+    <div class="container-xxl my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
 <h1>{% trans "Confirm E-mail Address" %}</h1>
 
 {% if confirmation %}
@@ -17,15 +24,18 @@
 
 <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
 {% csrf_token %}
-    <button type="submit">{% trans 'Confirm' %}</button>
+    <button type="submit" class="new-button">{% trans 'Confirm' %}</button>
 </form>
 
 {% else %}
 
 {% url 'account_email' as email_url %}
 
-<p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
+<p class="my-5">{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
 
 {% endif %}
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
