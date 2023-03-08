@@ -77,9 +77,9 @@
 							<!-- main side nav start -->
 							<nav class="mainmenu_side_wrapper">
 								<ul class="nav menu-click">
-
-
-
+                                <li>
+                                    <a href="{% url 'index' %}">Home</a>
+                                </li>
 									<li>
 										<a href="">Branduri</a>
 									</li>
@@ -121,7 +121,7 @@
                                         <a href="{% url 'message_create' %}">Contact</a>
                                     </li>
 
-                                                 <div class="row" style="background: #ff6a00">
+                                                 <div class="row mt-3" style="background: #f2fffd">
 
              {% if request.user.is_authenticated %}
 
