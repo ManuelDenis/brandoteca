@@ -63,7 +63,7 @@
     <h5>Trimite un mesaj</h5>
     {% csrf_token %}
     {{ form|crispy }}
-    <h6 id="input_message" class="bolder"></h6>
+    <h6 id="input_message" class="bolder text-secondary"></h6>
     <button type="submit" value="Submit" class="new-button shadow"> Send </button>
 </form>						</div>
 						<!--.col-* -->
@@ -87,7 +87,7 @@ $(document).ready(function(){
       		data : serializedData,
       		success : function(response){
       			$("#contactForm")[0].reset();
-                  $("#input_message").text("Message was sent!").show(1000);
+                  $("#input_message").text("Mesajul a fost trimis!").show(1200);
                   $("#input_message").hide(1000);
             },
       		error : function(response){

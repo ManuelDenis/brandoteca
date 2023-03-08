@@ -64,64 +64,70 @@
 			<!-- template sections -->
 
 			<!--topline section visible only on small screens|-->
-			<nav class="navbar navbar-dark bg-dark fixed-top" style="font-family: Montserrat, sans-serif">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'index' %}"><img src="/static/images/brandotecalogowhite.png" alt="" style="height: 25px"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-      <div class="offcanvas-header">
-        <h6 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h6>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body text-dark" style="font-weight: 400; background: #f2fffd">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item mb-1">
-              <a class="menu-item bolder text-dark" href="">Branduri  <span class="badge bg-info rounded-pill">170</span></a>
-          </li>
-            <li class="nav-item mt-3">
-            <a class="menu-item bolder text-dark" href="#">Promotii <span class="badge bg-info rounded-pill">35</span></a>
-          </li>
-        <li class="nav-item mb-1">
-            <a class="menu-item bolder text-dark" href="#">Concursuri <span class="badge bg-info rounded-pill">17</span></a>
-          </li>
 
-        <div class="row mt-5">
-            <div class="col-6">
-        <li class="nav-item">
-            <a class="menu-item text-dark" href="#">Noutati</a>
-          </li>
-            <li class="nav-item">
-            <a class="menu-item text-dark" href="#">Articole</a>
-          </li>
-            </div>
-            <div class="col-6">
-        <li class="nav-item">
-            <a class="menu-item text-dark" href="#">Blog</a>
-          </li>
-            <li class="nav-item">
-            <a class="menu-item text-dark" href="#">Despre</a>
-          </li>
-            </div>
-        </div>
+            <header class="page_header_side header_push header_side_right ls">
+				<span class="toggle_menu toggle_menu_side ">
+					<span></span>
+				</span>
+				<div class="scrollbar-macosx">
+					<div class="side_header_inner">
 
-        <div class="row mt-2">
-            <div class="col-lg-6">
-                <li class="nav-item">
-            <a class="menu-item text-dark" href="{% url 'message_create' %}">Contact</a>
-          </li>
-            </div>
-        </div>
 
-        <br>
-             <div class="row py-3 rounded">
+						<div class="header-side-menu">
+							<!-- main side nav start -->
+							<nav class="mainmenu_side_wrapper">
+								<ul class="nav menu-click">
+
+
+
+									<li>
+										<a href="">Branduri</a>
+									</li>
+                                    <li>
+										<a href="">Noutati</a>
+									</li>
+                                    <li>
+										<a href="">Promotii</a>
+									</li>
+                                    <li>
+										<a href="">Concursuri</a>
+									</li>
+                                    <li>
+                                        <a href="">Articole</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Blog</a>
+                                    </li>
+
+									<li>
+										<a href="">Informatii utile</a>
+										<ul class="bg-secondary">
+											<li>
+												<a href="">Despre Brandoteca</a>
+											</li>
+											<li>
+												<a href="">Pachete</a>
+											</li>
+											<li>
+												<a href="">Blog</a>
+											</li>
+											<li>
+												<a href="">Intrebari frecvente</a>
+											</li>
+
+										</ul>
+									</li>
+                                    <li>
+                                        <a href="{% url 'message_create' %}">Contact</a>
+                                    </li>
+
+                                                 <div class="row" style="background: #ff6a00">
 
              {% if request.user.is_authenticated %}
 
 
                  <li class="menu-item">
-                  <a href="#" class="menu-link text-dark">
+                  <a href="#" class="menu-link">
                       <i class="bi bi-check-circle-fill text-dark"></i> {{ request.user|capfirst }}</a>
                  </li>
 
@@ -132,41 +138,250 @@
 
                   {% else %}
                 <li class="menu-item">
-                  <a href="{% url 'account_login' %}" class="text-dark menu-link">
+                  <a href="{% url 'account_login' %}" class="menu-link">
                     <div data-i18n="Basic">Login</div>
                   </a>
                 </li>
 
                 <li class="menu-item">
-                  <a href="{% url 'account_signup' %}" class="menu-link text-dark">
+                  <a href="{% url 'account_signup' %}" class="menu-link">
                     <div data-i18n="Basic">Register</div>
                   </a>
                 </li>
 
                  <li class="menu_item">
-                   <a class="menu-link bg-primary rounded p-1" href="{% provider_login_url 'google' %}">Sign in with <img src="https://img.icons8.com/color/16/000000/google-logo.png"></a>
+                   <a class="menu-link" href="{% provider_login_url 'google' %}">Sign in with <img src="https://img.icons8.com/color/16/000000/google-logo.png"></a>
                  </li>
 
                   {% endif %}
+
         </div>
 
 
+								</ul>
+							</nav>
+							<!-- eof main side nav -->
+						</div>
 
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
+						<div class="text-center">
+							<span class="social-icons">
+
+								<a href="#" class="fa fa-facebook color-icon border-icon rounded-icon" title="facebook"></a>
+								<a href="#" class="fa fa-twitter color-icon border-icon rounded-icon" title="twitter"></a>
+								<a href="#" class="fa fa-google color-icon border-icon rounded-icon" title="google"></a>
+
+							</span>
+						</div>
+
+						<div class="widget widget_search">
+
+							<form role="search" method="get" class="search-form" action="/">
+								<label for="search-form-widget">
+									<span class="screen-reader-text">Search for:</span>
+								</label>
+								<input type="search" id="search-form-widget" class="search-field" placeholder="Search" value="" name="search">
+								<button type="submit" class="search-submit">
+									<span class="screen-reader-text">Search</span>
+								</button>
+							</form>
+						</div>
 
 
-			<span class="toggle_menu_side header-slide">
-				<span></span>
-			</span>
+						<div class="widget widget_icons_list links-maincolor">
+							<ul class="list-unstyled">
+								<li class="icon-inline">
+									<div class="icon-styled color-darkgrey icon-top fs-14">
+										<i class="fa fa-map-marker"></i>
+									</div>
+									<p>90000, New Str. 123, Los Angeles, CA</p>
+								</li>
+								<li class="icon-inline">
+									<div class="icon-styled color-darkgrey icon-top fs-14">
+										<i class="fa fa-phone"></i>
+									</div>
+									<p>1-800-123-4567</p>
+								</li>
+								<li class="icon-inline">
+									<div class="icon-styled color-darkgrey icon-top fs-14">
+										<i class="fa fa-envelope"></i>
+									</div>
+									<p>
+										<a href="#">email@example.com</a>
+									</p>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</header>
+
+            <section class="page_topline ds s-py-15 c-my-5">
+				<div class="container">
+					<div class="row align-items-center">
+
+						<div class="col">
+							<ul class="top-includes border-divided small-text">
+								<li>
+                                    <a href="{% url 'index' %}"><img src="/static/images/brandotecalogowhite.png" alt="" style="height: 25px"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
 
 
 
             {% block content %}
             {% endblock %}
+
+
+            <footer class="mt-5 page_footer corner-footer ds s-pt-30 s-pb-0 s-pb-lg-10 s-pb-xl-50 c-gutter-60 s-parallax">
+
+				<div class="container">
+					<div class="container">
+						<div class="row">
+							<div class="divider-20 d-none d-xl-block"></div>
+							<div class="col-md-12 mt-4 text-center animate" data-animation="fadeInUp">
+								<img class="margin-negative" src="/static/images/braandotecafulllogo.png" alt="" style="height: 200px">
+								<div class="widget widget_social_buttons">
+									<a href="http://www.facebook.com/#" class="fa fa-facebook color-icon" title="facebook"></a>
+									<a href="http://www.twitter.com/#" class="fa fa-twitter color-icon" title="twitter"></a>
+									<a href="http://www.plus.google.com/#" class="fa fa-google color-icon" title="google"></a>
+									<a href="http://www.youtube.com/#" class="fa fa-youtube-play color-icon" title="youtube-play"></a>
+									<a href="http://www.linkedin.com/#" class="fa fa-linkedin color-icon" title="linkedin"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+            <footer class="page_footer ds s-pb-20 s-pt-50 s-pb-md-20 s-pt-md-130 s-pb-lg-50 s-pt-lg-100 s-pt-xl-75 c-gutter-60 bordered-footer bottom-none layout-2">
+				<div class="container">
+					<div class="row">
+						<div class="d-none d-xl-block"></div>
+
+						<div class="col-md-4 text-center animate footer-contact" data-animation="fadeInUp">
+							<div class="widget widget_icons_list">
+								<div class="footer_logo">
+									<img src="img/logo1.png" alt="">
+								</div>
+                                <h6><strong>BRAND</strong>OTECA</h6>
+								<ul>
+									<li class="icon-inline">
+										<div class="icon-styled icon-top color-main fs-14">
+											<i class="fa fa-map-marker"></i>
+										</div>
+										<p>Str. Brazda lui Novac, nr. 101, bl. 29 IVB1, parter, Craiova, România</p>
+									</li>
+									<li class="icon-inline">
+										<div class="icon-styled icon-top color-main fs-14">
+											<i class="fa fa-phone"></i>
+										</div>
+										<p><a href="tel:+40(751)557601">+40 751 557601</a></p>
+									</li>
+									<li class="icon-inline">
+										<div class="icon-styled icon-top color-main fs-14">
+											<i class="fa fa-envelope"></i>
+										</div>
+										<p>
+											<a href="mailto:contact@brandoteca.ro">contact@brandoteca.com</a>
+										</p>
+									</li>
+								</ul>
+								<div class="widget widget_social_buttons">
+									<a href="#" class="fa fa-facebook color-bg-icon rounded-icon" title="facebook"></a>
+									<a href="#" class="fa fa-twitter color-bg-icon rounded-icon" title="twitter"></a>
+									<a href="#" class="fa fa-google-plus color-bg-icon rounded-icon" title="google"></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 text-center animate mailchimp" data-animation="fadeInUp">
+							<div class="widget widget_mailchimp">
+
+								<h3 class="widget-title">Newsletter</h3>
+
+								<p>
+									Enter your email address here always to be
+									<br> updated. We promise not to spam!
+								</p>
+
+								<form class="signup" action="/">
+									<label for="mailchimp_email">
+										<span class="screen-reader-text">Subscribe:</span>
+									</label>
+
+									<input id="mailchimp_email" name="email" type="email" class="form-control mailchimp_email" placeholder="Email address">
+
+									<div class="response"></div>
+								</form>
+
+							</div>
+						</div>
+
+                        <div class="col-md-4 text-center animate mailchimp" data-animation="fadeInUp>
+							<div class="widget widget_mailchimp">
+
+
+                        <ul class="list-unstyled text-light">
+                            <li class="bolder">
+                                Copyright 2023 all rights reserved
+                            </li><br>
+                            <li>
+                                Termene si conditi
+                            </li>
+                            <li>
+                                Reguli de postare
+                            </li>
+                            <li>
+                                Politica de confidentialitate
+                            </li>
+                            <li>
+                                Politica de cookies
+                            </li>
+                        </ul>
+
+							</div>
+						</div>
+
+
+						<div class="divider-10 d-none d-xl-block"></div>
+					</div>
+				</div>
+
+
+
+            <div id="copyright"></div>
+			<section class="page_copyright ls s-py-30 container-px-60">
+				<div class="container-fluid bg-secondary">
+					<div class="row align-items-center">
+						<div class="col-lg-4 text-center text-lg-left animate" data-animation="scaleAppear">
+							<p>&copy; Copyright
+								<span class="copyright_year">2023</span> All Rights Reserved</p>
+						</div>
+						<div class="col-lg-4 text-center animate" data-animation="scaleAppear">
+							<img src="/static/images/brandotecalogowhite.png" alt="" style="height: 30px">
+						</div>
+						<div class="col-lg-4 text-center text-right animate" data-animation="scaleAppear">
+							<div class="widget widget_nav_menu">
+								<ul class="menu">
+									<li>
+										<a href="">Services</a>
+									</li>
+									<li>
+										<a href="">Contacts</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
 
 
 		</div>

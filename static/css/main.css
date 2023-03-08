@@ -98,7 +98,7 @@ Border color for elements in color section: rgba(255, 255, 255, 0.15)
 }
 
 .new-button {
-	background: #677793;
+	background: #ff6a00;
 	border-style: none;
 	border-radius: 10px;
 	color: #fff;
@@ -289,6 +289,7 @@ label {
 
 a {
 	color: #323232;
+	font-size: large;
 	text-decoration: none;
 	-webkit-transition: all 0.2s ease-in-out 0s;
 	transition: all 0.2s ease-in-out 0s;
@@ -487,7 +488,7 @@ ul.list .list-styled ul li:before,
 ul.list ul.list-styled li:before {
 	color: #ff497c;
 	content: "\f054";
-	font-family: "FontAwesome";
+	font-family: Montserrat, sans-serif;
 	font-size: 10px;
 	padding-right: 15px;
 	position: relative;
@@ -498,14 +499,14 @@ ul.list ul.list-styled li:before {
 	border-bottom: 1px solid #e1e1e1;
 	border-top: 1px solid #e1e1e1;
 	list-style: none;
-	padding-bottom: 15px;
-	padding-top: 14px;
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
 
 .list li :before {
 	color: #ff497c;
 	content: "\f111";
-	font-family: "FontAwesome";
+	font-family: Montserrat, sans-serif;
 	font-size: 5px;
 	padding-right: 15px;
 	position: relative;
@@ -13819,12 +13820,10 @@ a img.aligncenter {
 
 .menu-click a {
 	display: block;
-	font-size: 12px;
-	font-weight: 700;
-	letter-spacing: 0.2em;
+	font-size: 17px;
+	font-weight: 500;
 	line-height: 1.6em;
-	padding: 10px 40px;
-	text-transform: uppercase;
+	padding: 3px 30px;
 }
 
 .menu-click a:hover {

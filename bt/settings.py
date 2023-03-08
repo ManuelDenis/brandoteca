@@ -65,7 +65,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bt.wsgi.application'
-
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+"""
 DATABASES = {
     'default': {
         'USER': os.getenv('USER'),
@@ -121,11 +128,11 @@ ACCOUNT_UNIQUE_EMAIL = True
 if not DEBUG:
     django_heroku.settings(locals())
 
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+
 EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_APY_KEY')
-
-# The email you'll be sending emails from
-DEFAULT_FROM_EMAIL = os.getenv('FROM_EMAIL', default='noreply@gmail.com')
+DEFAULT_FROM_EMAIL = 'brandoteca2023@gmail.com'
