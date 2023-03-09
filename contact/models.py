@@ -16,11 +16,3 @@ class Message(models.Model):
 
     def save(self, *args, **kwargs):
         return super(Message, self).save(*args, **kwargs)
-
-
-class Newsletter(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    email = models.EmailField(null=True, blank=True)
-
-    def __str__(self):
-        return self.email

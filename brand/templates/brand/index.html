@@ -45,16 +45,12 @@
 					<a href="#about" class="mouse-button animated floating"></a>
 				</div>
 			</section>
-			<div class="divider-10 d-block d-sm-none"></div>
-			<section class="s-pt-30 s-pt-lg-50 s-pt-xl-25 ls about-home" id="about">
+			<section id="about">
 				<div class="divider-5 d-none d-xl-block"></div>
-				<div class="container">
-					<div class="row">
+					<div class="row p-2">
 						<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
 							<div class="main-content text-center">
 								<div class="img-wrap text-center">
-									<img src="/static/img/vertical_line.png" alt="">
-									<div class="divider-35"></div>
 								</div>
 								<h5>
 									Dedicați brandurilor românești
@@ -63,49 +59,30 @@
                                       IMM-urile sunt cele care asigură creșterea economică organică. În lipsa vizibilității, multe startup-uri și branduri românești sunt condamnate la dispariție.
                                     <strong><br><br>Brandoteca – Biblioteca Brandurilor Românești<br></strong>te ajută să spui povestea brandului tău. Alege să fii un Brand, nu doar un SRL.<br><strong class="text-danger">Listează-ți brandul GRATUIT</strong> și bucură-te de publicitate națională & internațională!
 								</p>
-								<div class="divider-30"></div>
-								<div class="img-wrap text-center">
-									<img src="/static/img/vertical_line.png" alt="">
 								</div>
-								<div>
-									<div class="divider-40"></div>
-									<button type="button" class="btn btn-outline-maincolor">Get Started</button>
-									<div class="divider-40"></div>
-								</div>
-								<div class="img-wrap text-center">
-									<img src="/static/img/vertical_line.png" alt="">
-								</div>
-								<div class="divider-10 d-none d-xl-block"></div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="divider-10 d-block d-sm-none"></div>
 			</section>
-			<section class="s-pt-130 s-pt-md-50 ls text-section my-5 ">
-				<div class="divider-30"></div>
-				<div class="container mb-5">
+			<section class="s-pt-130 s-pt-md-50 ls mb-5 p-2">
+				<div class="container">
 					<div class="row">
-						<div class="text-center col-md-12 justify-content-center text-block">
-							<img src="/static/img/vertical_line.png" alt="">
-							<div class="divider-35"></div>
+						<div style="background: rgba(217,156,1,0.08); border-radius: 25px" class="pt-5 text-center col-md-12 justify-content-center text-block">
 							<div class="content">
-								<h1>
+								<h3>
 									Lets Get Started
 									<br> Your Project
-								</h1>
-								<p>
+								</h3>
+								<p class="bolder">
 									We’ll help to achieve your goals and to grow business
 								</p>
 								<div class="divider-30"></div>
 							</div>
-							<img src="/static/img/vertical_line.png" alt="">
 							<div>
 								<div class="divider-40"></div>
-								<a href="#" class="btn btn-outline-maincolor">Let’s Talk!</a>
+								<a href="#" class="btn">Let’s Talk!</a>
 								<div class="divider-30"></div>
 							</div>
-							<div class="img-wrap overflow-visible mb-5">
+							<div class="img-wrap overflow-visible">
 								<div class="divider-5 d-none d-xl-block"></div>
 							</div>
 						</div>
@@ -114,5 +91,50 @@
 				</div>
 			</section>
 
+
+    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5 text-center" data-animation="fadeInUp">
+							<div>
+
+								<h3 class="widget-title">Newsletter</h3>
+
+								<p>
+									Enter your email address here always to be updated. We promise not to spam!
+								</p>
+                                  <form method="POST" id="newsForm" class="mb-5">
+                                      {% csrf_token %}
+                                      {{ form|crispy }}
+                                      <p id="news_message" class="text-secondary"></p>
+                                      <button type="submit" value="Submit" class="new-button shadow m-2"> Send </button>
+                                  </form>
+							</div>
+						</div>
+    </div>
+    </div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+            $('#news_message').hide();
+            $("#newsForm").submit(function(e){
+            e.preventDefault();
+        const serializedData = $(this).serialize();
+       $.ajax({
+      		type : 'POST',
+      		url :  "{% url 'index' %}",
+      		data : serializedData,
+      		success : function(response){
+      			  $("#newsForm")[0].reset();
+                  $("#news_message").text("Esti abonat!").show(1200);
+                  $("#news_message").hide(1000);
+            },
+      		error : function(response){
+      			console.log(response)
+      		}
+      	});
+   });
+});
+</script>
 
 {% endblock %}
