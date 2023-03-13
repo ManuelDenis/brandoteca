@@ -30,6 +30,9 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'brand.apps.BrandConfig',
     'contact.apps.ContactConfig',
+    'articole.apps.ArticoleConfig',
+    'noutati.apps.NoutatiConfig',
+    'djrichtextfield',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -124,6 +127,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
 if not DEBUG:
     django_heroku.settings(locals())
@@ -136,3 +140,31 @@ EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'brandoteca2023@gmail.com'
+
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//cdn.tiny.cloud/1/cts1qwx93hp8w7y3049useqxhe835ad1tdyoimeeymx3npee/tinymce/5/tinymce.min.js'],
+    'init_template': 'tinymce/tinymce.js',
+    'settings': {
+        'selector': 'textarea',
+        'plugins': 'paste searchreplace autolink visualchars link table charmap hr nonbreaking insertdatetime advlist lists wordcount help charmap quickbars emoticons autoresize image code',
+        'menubar': 'edit view insert format tools table help',
+        'toolbar': 'undo redo | bold italic underline strikethrough | link image | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | charmap emoticons',
+        'toolbar_sticky': True,
+        'quickbars_selection_toolbar': 'bold italic | quicklink h2 h3 blockquote',
+        'quickbars_image_toolbar': False,
+        'quickbars_insert_toolbar': False,
+        'toolbar_mode': 'sliding',
+        'contextmenu': 'link',
+        'content_style': 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+        'max_height': 500,
+        'branding': False,
+        'image_class_list': [{'title': 'img-fluid', 'value': 'img-fluid'}],
+        'smart_paste': False,
+        'paste_data_images': False,
+        'paste_as_text': True,
+        'paste_block_drop': True,
+    },
+}
+BRAND_TYPES = (('Brand Comercial', 'C'), ('ONG', 'O'))
+
+
