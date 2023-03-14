@@ -5,7 +5,7 @@
 {% load account socialaccount %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}Register{% endblock %}
+{% block head_title %}Creare Utilizator | Brandoteca{% endblock %}
 
 {% block content %}
 
@@ -15,11 +15,11 @@
         <div class="row justify-content-center">
             <div class="col-lg-5">
 
-              <h6 class="mb-4 text-center mt-5">Sign up</h6>
+              <h6 class="mb-4 text-center mt-5">Cont nou</h6>
               <p class="text-center">
-                <span>Already have an account?</span>
-                <a href="{% url 'account_login' %}" class="bolder"><br>Sign in</a>
-                <a class="btn-block btn-outline" href="{% provider_login_url 'google' %}"><img src="https://img.icons8.com/color/16/000000/google-logo.png">Sign in with <strong>Google</strong></a>
+                <span>Ai deja cont?</span>
+                <a href="{% url 'account_login' %}" class="bolder text-primary"><br>Autentificare</a>
+                <a class="btn-block btn-outline" href="{% provider_login_url 'google' %}"><img src="https://img.icons8.com/color/16/000000/google-logo.png">Conecteaza-te prin <strong>Google</strong></a>
 
               </p>
 
@@ -29,7 +29,7 @@
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button type="submit" class="new-button d-grid w-30 my-4">{% trans "Sign Up" %}</button>
+  <button type="submit" class="new-button d-grid w-30 my-4">Inscrie-te!</button>
 </form>
 
 

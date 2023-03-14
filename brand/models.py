@@ -20,7 +20,7 @@ class Brand(models.Model):
     is_verified = models.BooleanField(default=False)
     name = models.CharField(max_length=64)
     motto = models.CharField(max_length=200, null=True, blank=True)
-    founding_year = models.SmallIntegerField(default=datetime.datetime.now().year)
+    founding_year = models.IntegerField(choices=settings.FOUNDING_YEAR)
     description = RichTextField()
     address = models.CharField(max_length=255, null=True, blank=True)
     email = models.EmailField()
@@ -43,6 +43,7 @@ class Brand(models.Model):
 
     type = models.CharField(max_length=20, choices=settings.BRAND_TYPES)
     main_category = models.CharField(max_length=105, choices=DataChoices.country.BRAND_CATEGORY)
+    categories = models.CharField(max_length=105, choices=DataChoices.country.BRAND_CATEGORY, null=True, blank=True)
 
     country = models.CharField(max_length=50, choices=DataChoices.country.COUNTRY)
     city = models.CharField(max_length=100, choices=DataChoices.country.CITY)

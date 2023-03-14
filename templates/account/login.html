@@ -5,38 +5,32 @@
 {% load account socialaccount %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}Brandoteca | Login{% endblock %}
+{% block head_title %}Conecteaza-te | Brandoteca{% endblock %}
 
 {% block content %}
 
     <div class="container my-5">
 
-
-
-          <div class="row justify-content-center my-5">
-          <div class="col-lg-5 my-5">
-                <p class="text-center"><span>New on our platform?</span>
-                <a href="{% url 'account_signup' %}" class="bolder"><br>Sign up</a>
-                <a class="btn-block btn-outline" href="{% provider_login_url 'google' %}"><img src="https://img.icons8.com/color/16/000000/google-logo.png">Sign in with <strong>Google</strong></a>
+          <div class="row justify-content-center mb-5">
+          <div class="col-lg-5 mb-5">
+                <h4 class="text-center">Autentificare</h4>
+                <p class="text-center"><span>Nu ai cont?</span>
+                <a href="{% url 'account_signup' %}" class="bolder text-primary"><br>Inregistreaza-te</a><br>sau<br>
+                <a class="btn-block btn-outline" href="{% provider_login_url 'google' %}"><img src="https://img.icons8.com/color/16/000000/google-logo.png">Conecteaza-te prin <strong>Google</strong></a>
                 </p>
                  <form method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <a href="{% url 'account_reset_password' %}">Forgot password?</a>
+                <a href="{% url 'account_reset_password' %}" class="text-primary">Mi-am uitat parola!</a>
                     {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                     {% endif %}
-                    <button class="new-button d-grid mt-3 shadow" type="submit">{% trans "Sign In" %}</button>
+                    <button class="new-button d-grid mt-3 shadow" type="submit">Autentificare</button>
                 </form>
             </div>
           </div>
-
-
-
-
-
             </div>
-        </div>
+
 
 
 {% endblock %}
