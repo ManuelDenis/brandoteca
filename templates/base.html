@@ -47,7 +47,12 @@
 
 </head>
 
-<body style="font-family: Montserrat, sans-serif">
+<body class="text-secondary" style="font-family: Montserrat, sans-serif">
+
+
+
+
+
 
 	<!-- Unyson messages modal -->
 	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
@@ -61,12 +66,9 @@
 	<div>
 		<div id="box_wrapper">
 
-			<!-- template sections -->
-
-			<!--topline section visible only on small screens|-->
-
-            <header class="page_header_side header_push header_side_right ls">
-				<span class="toggle_menu toggle_menu_side ">
+        <!-- Menu -->
+        <header class="page_header_side header_slide header_side_right ls">
+				<span class="toggle_menu toggle_menu_side header-slide mt-lg-2">
 					<span></span>
 				</span>
 				<div class="scrollbar-macosx">
@@ -77,51 +79,56 @@
 							<!-- main side nav start -->
 							<nav class="mainmenu_side_wrapper">
 								<ul class="nav menu-click">
-                                <li class="bolder">
-                                    <a href="{% url 'index' %}">Home </a>
-                                </li>
-									<li>
-										<a href="">Branduri</a>
+
+
+									<li class="active">
+										<a href="{% url 'index' %}">Branduri</a>
 									</li>
-                                    <li>
+									<li>
 										<a href="">Noutati</a>
 									</li>
-                                    <li>
+									<li>
 										<a href="">Promotii</a>
 									</li>
-                                    <li>
+									<!-- blog -->
+
+									<!-- gallery -->
+									<li>
 										<a href="">Concursuri</a>
 									</li>
-                                    <li>
-                                        <a href="">Articole</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Blog</a>
-                                    </li>
+									<!-- eof Gallery -->
+
 
 									<li>
-										<a href="">Informatii utile</a>
-										<ul class="bg-secondary">
-											<li>
-												<a href="">Despre Brandoteca</a>
-											</li>
-											<li>
-												<a href="">Pachete</a>
-											</li>
-											<li>
-												<a href="">Blog</a>
-											</li>
-											<li>
-												<a href="">Intrebari frecvente</a>
-											</li>
+										<a href="">Articole</a>
+									</li>
+									<!-- eof pages -->
 
+									<li>
+										<a href="">Blog</a>
+									</li>
+									<!-- eof blog -->
+
+									<li>
+										<a href="">Submeniu</a>
+										<ul>
+											<li>
+												<a href="">Contact 1</a>
+											</li>
+											<li>
+												<a href="">Contact 2</a>
+											</li>
+											<li>
+												<a href="">Contact 3</a>
+											</li>
+											<li>
+												<a href="">Contact 4</a>
+											</li>
 										</ul>
 									</li>
-                                    <li>
-                                        <a href="{% url 'message_create' %}">Contact</a>
-                                    </li>
 
-                                                 <div class="row mt-3" style="background: rgba(217,156,1,0.08)">
+
+                                     <div class="row py-2 my-2 bg-darkgrey text-light">
 
              {% if request.user.is_authenticated %}
 
@@ -132,20 +139,20 @@
                  </li>
 
                    <li class="menu-item">
-                  <a href="{% url 'account_logout' %}" class="menu-link text-dark">
+                  <a href="{% url 'account_logout' %}" class="menu-link">
                        <i class="bi bi-x-circle text-dark"></i> Logout</a>
                    </li>
 
                   {% else %}
                 <li class="menu-item">
-                  <a href="{% url 'account_login' %}" class="menu-link">
-                    <div data-i18n="Basic">Login</div>
+                  <a href="{% url 'account_login' %}" class="menu-link" style="color: coral">
+                    <div data-i18n="Basic">Autentificare</div>
                   </a>
                 </li>
 
                 <li class="menu-item">
                   <a href="{% url 'account_signup' %}" class="menu-link">
-                    <div data-i18n="Basic">Register</div>
+                    <div data-i18n="Basic">Inregistrare</div>
                   </a>
                 </li>
 
@@ -163,58 +170,55 @@
 							<!-- eof main side nav -->
 						</div>
 
-						<div class="text-center">
-							<p class="social-icons">
-								<a href="#" class="fa fa-facebook color-icon border-icon rounded-icon" title="facebook"></a>
-								<a href="#" class="fa fa-twitter color-icon border-icon rounded-icon" title="twitter"></a>
-								<a href="#" class="fa fa-google color-icon border-icon rounded-icon" title="google"></a>
-							</p>
+					</div>
+				</div>
+			</header>
+
+
+			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
+			<header class="page_header ds c-my-5 bg-darkgrey">
+				<div class="container">
+					<div class="row align-items-center pt-2 pt-lg-5 pb-lg-2">
+						<div class="col-sm-3">
+
+							<a href="{% url 'index' %}" class="logo">
+								<img src="/static/images/brandotecalogowhite.png" alt="" style="height: 30px">
+							</a>
+
 						</div>
 
-						<div class="widget widget_icons_list links-maincolor">
-							<ul class="list-unstyled">
-								<li class="icon-inline">
-									<div class="icon-styled color-darkgrey icon-top fs-14">
-										<i class="fa fa-map-marker"></i>
-									</div>
-									<p class="small">Str. Brazda lui Novac, nr. 101, bl. 29 IVB1, parter, Craiova, România</p>
+						<div class="col-sm-9 text-center text-sm-right">
+
+							<ul class="top-includes">
+
+								<li>
+									<span class="social-icons d-none d-lg-block" style="word-spacing: 10px; font-weight: 400">
+                                        <a href="" style="color: lightgrey">Branduri</a>
+                                        <a href="" style="color: lightgrey">Noutati</a>
+                                        <a href="" style="color: lightgrey">Promotii</a>
+                                        <a href="" style="color: lightgrey">Concursuri</a>
+                                        <a href="" style="color: lightgrey">Articole</a>
+                                        <a href="" style="color: lightgrey">Blog</a>
+                                        {% if request.user.is_authenticated %}
+                                            <a href=""><i class="bi bi-person-fill text-success"></i>|{{ request.user|capfirst|truncatechars:10 }}</a>
+                                        {% else %}
+                                            <a href="{% url 'account_login' %}" style="color: coral">Autentificare</a>
+                                        {% endif %}
+									</span>
 								</li>
-								<li class="icon-inline">
-									<div class="icon-styled color-darkgrey icon-top fs-14">
-										<i class="fa fa-phone"></i>
-									</div>
-                                    <p class="small"><a href="tel:+40751557601">+40 751 557601</a></p>
-								</li>
-								<li class="icon-inline">
-									<div class="icon-styled color-darkgrey icon-top fs-14">
-										<i class="fa fa-envelope"></i>
-									</div>
-									<p class="small">
-										<a href="mailto:contact@brandoteca.ro">contact@brandoteca.com</a>
-									</p>
-								</li>
+
+
 							</ul>
+
 						</div>
 
 					</div>
 				</div>
 			</header>
 
-            <section class="page_topline ds s-py-15 c-my-5">
-				<div class="container">
-					<div class="row align-items-center">
+			<!-- template sections -->
 
-						<div class="col">
-							<ul class="top-includes border-divided small-text">
-								<li>
-                                    <a href="{% url 'index' %}"><img src="/static/images/brandotecalogowhite.png" alt="" style="height: 25px"></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
-
+			<!--topline section visible only on small screens|-->
 
 
             {% block content %}
