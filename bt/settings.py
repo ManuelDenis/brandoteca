@@ -146,7 +146,7 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'brandoteca2023@gmail.com'
 
 DJRICHTEXTFIELD_CONFIG = {
-    'js': ['//cdn.tiny.cloud/1/ktp2clwfw5ww1kxz6y5m5ifhsdic12yqoomi5w0nul49eqs1/tinymce/5/tinymce.min.js'],
+    'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
     'init_template': 'djrichtextfield/init/tinymce.js',
     'settings': {
         'selector': 'textarea',
