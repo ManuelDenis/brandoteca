@@ -224,8 +224,6 @@ body {
 }
 
 form {
-	padding: 25px;
-	border-radius: 12px;
 	margin-top: 25px;
 	font-family: Montserrat, sans-serif;
 }
@@ -760,7 +758,6 @@ ol.list3 li:after {
 .layout-2 .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
 	color: #1f2732;
 	content: "\f054";
-	font-family: FontAwesome;
 	font-size: 7px;
 	padding: 0 7px;
 	position: relative;
@@ -783,6 +780,82 @@ ol.list3 li:after {
 	text-align: left;
 }
 
+
+
+
+
+.custom-select {
+  position: relative;
+  font-family: Montserrat, sans-serif;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #f01eff;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+ht {
+    font-size: 12px;
+    color: rgba(2, 32, 40, 0.98);
+	position: relative;
+	bottom: 13px;
+	left: 15px;
+	line-height: 7px;
+}
+
 /* forms */
 input[type="text"],
 input[type="email"],
@@ -794,11 +867,7 @@ input[type="number"],
 textarea,
 select,
 .form-control {
-    border-style: none;
-	background: rgb(232, 236, 255);
-	border-radius: 10px;
-	padding: 10px 0 10px 15px;
-	margin-bottom: -18px;
+	font-size: 15px;
 }
 
 input[disabled] {
@@ -812,9 +881,9 @@ button {
 
 input[type="submit"],
 button {
-	background: #8102e7;
+	background: #fa7c60;
 	border-style: none;
-	border-radius: 35px;
+	border-radius: 10px;
 	color: #fff;
 	cursor: pointer;
 	font-size: 15px;
@@ -869,8 +938,9 @@ select[multiple] {
 
 select option,
 .form-control option {
-	background-color: #fff;
+	background-color: #f2fffd;
 	color: #323232;
+	font-size: 15px;
 }
 
 .form-control-unstyled {
@@ -880,6 +950,7 @@ select option,
 .form-control,
 .form-control:focus {
 	box-shadow: none;
+	font-size: 15px;
 }
 
 .form-control.invalid {

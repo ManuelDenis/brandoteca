@@ -17,7 +17,13 @@ class Newsletter(models.Model):
 
 class Brand(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    created_at = models.DateTimeField(default=datetime.datetime.now())
+    updated_at = models.DateTimeField(default=datetime.datetime.now())
+    is_active = models.BooleanField(default=True)
     is_verified = models.BooleanField(default=False)
+    is_premium = models.BooleanField(default=False)
+    is_brand_of_the_month = models.BooleanField(default=False)
+
     name = models.CharField(max_length=64)
     motto = models.CharField(max_length=200, null=True, blank=True)
     founding_year = models.IntegerField(choices=settings.FOUNDING_YEAR)
@@ -46,7 +52,7 @@ class Brand(models.Model):
     categories = models.CharField(max_length=105, choices=DataChoices.country.BRAND_CATEGORY, null=True, blank=True)
 
     country = models.CharField(max_length=50, choices=DataChoices.country.COUNTRY)
-    city = models.CharField(max_length=100, choices=DataChoices.country.CITY)
+    city = models.CharField(max_length=100, choices=DataChoices.country.ORASE, default='Bucuresti')
 
     user = models.ForeignKey(User, on_delete=models.deletion.CASCADE)
 

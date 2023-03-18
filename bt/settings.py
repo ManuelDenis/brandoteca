@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'articole.apps.ArticoleConfig',
     'noutati.apps.NoutatiConfig',
     'djrichtextfield',
+    'ckeditor',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -70,7 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bt.wsgi.application'
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -88,7 +89,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+"""
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -145,8 +146,8 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'brandoteca2023@gmail.com'
 
 DJRICHTEXTFIELD_CONFIG = {
-    'js': ['//cdn.tiny.cloud/1/cts1qwx93hp8w7y3049useqxhe835ad1tdyoimeeymx3npee/tinymce/5/tinymce.min.js'],
-    'init_template': 'tinymce/tinymce.js',
+    'js': ['//cdn.tiny.cloud/1/ktp2clwfw5ww1kxz6y5m5ifhsdic12yqoomi5w0nul49eqs1/tinymce/5/tinymce.min.js'],
+    'init_template': 'djrichtextfield/init/tinymce.js',
     'settings': {
         'selector': 'textarea',
         'plugins': 'paste searchreplace autolink visualchars link table charmap hr nonbreaking insertdatetime advlist lists wordcount help charmap quickbars emoticons autoresize image code',

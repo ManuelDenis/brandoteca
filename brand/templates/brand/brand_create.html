@@ -4,24 +4,63 @@
 {% load i18n %}
 {% load account socialaccount %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block head_title %}Creeaza brand{% endblock %}
 
 {% block content %}
 
     <div class="container my-5">
-
-
-
-          <div class="row justify-content-center my-5 p-1">
-
+          <div class="row my-5 p-1">
+              <h5 class="bolder">Adaugare brand</h5>
+              <div class="col-lg-7 shadow text-start rounded bg-danger" style="color: white">
+                  <p class="small"><strong><i class="bi bi-exclamation-circle bold"></i> IMPORTANT:</strong> Pentru a putea fi listat în Brandoteca, brandul trebuie să aibă cel puțin o persoană de naționalitate română în echipa inițială care a creat brandul respectiv (asociați).</p>
+              </div>
+          </div>
+        <div class="row my-5 p-1">
               <form method="POST" enctype="multipart/form-data">
                   {% csrf_token %}
-                  {{ form|crispy }}
-              <input type="submit" value="Submit">
-              </form>
 
-          </div>
+                  <div class="row rounded shadow py-3">
+                      <h5 class="rounded bg-secondary">Informatii generale</h5>
+
+                      <div class="col-lg-4">
+                          {{ form.name|as_crispy_field }}
+                      </div>
+
+                      <div class="col-lg-4">
+                          {{ form.type|as_crispy_field }}
+                      </div>
+
+                      <div class="col-lg-4">
+                          {{ form.founding_year|as_crispy_field }}
+                      </div>
+
+                      <div class="col-lg-12 mt-2">
+                          {{ form.motto|as_crispy_field}}
+                      </div>
+
+                      <div class="col-lg-6">
+                          {{ form.main_category|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-6" style="height:200px; overflow-y: scroll">
+                          {{ form.categories|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-12">
+                          {{ form.media }}
+                          {{ form.description|as_crispy_field }}
+                      </div>
+                  </div>
+
+
+
+
+
+                  <button type="submit" class="new-button my-3" value="Submit">Adauga brand</button>
+              </form>
+        </div>
+
     </div>
+
 
 {% endblock %}
