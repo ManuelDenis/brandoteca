@@ -22,7 +22,7 @@
                   {% csrf_token %}
 
                   <div class="row rounded shadow py-3">
-                      <h5 class="rounded bg-secondary">Informatii generale</h5>
+                      <h5 class="rounded bg-secondary"><strong>1.</strong> Informatii generale</h5>
 
                       <div class="col-lg-4">
                           {{ form.name|as_crispy_field }}
@@ -51,15 +51,66 @@
                           {{ form.description|as_crispy_field }}
                       </div>
                   </div>
-
+                  <div class="row rounded shadow py-3 my-3">
+                      <h5 class="rounded bg-secondary"><strong>2.</strong> Date de contact</h5>
+                      <div class="col-lg-6">
+                          {{ form.entity|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-6">
+                          {{ form.vat_number|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-6">
+                          {{ form.reg_no|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-6">
+                          {{ form.euid|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-4">
+                          {{ form.address|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-4">
+                          {{ form.city|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-4">
+                          {{ form.country|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-6">
+                          {{ form.email|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-6">
+                          {{ form.phone|as_crispy_field }}
+                      </div>
+                  </div>
+                  <div class="row rounded shadow py-3">
+                      <h5 class="rounded bg-secondary"><strong>3.</strong> Prezenta online</h5>
+                      <div class="col-lg-4">
+                          {{ form.website|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-4">
+                          {{ form.video_url|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-4">
+                          {{ form.facebook|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-4">
+                          {{ form.instagram|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-4">
+                          {{ form.youtube|as_crispy_field }}
+                      </div>
+                      <div class="col-lg-4">
+                          {{ form.linkedin|as_crispy_field }}
+                      </div>
+                  </div>
 
 
 
 
                   <button type="submit" class="new-button my-3" value="Submit">Adauga brand</button>
               </form>
-        </div>
 
+
+        </div>
     </div>
 
 
