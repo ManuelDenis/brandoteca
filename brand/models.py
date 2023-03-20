@@ -1,8 +1,7 @@
-import datetime
 import uuid
+from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from django.db import models
-from djrichtextfield.models import RichTextField
 from autoslug import AutoSlugField
 import DataChoices.country
 from bt import settings
@@ -17,8 +16,6 @@ class Newsletter(models.Model):
 
 class Brand(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    created_at = models.DateTimeField(default=datetime.datetime.now())
-    updated_at = models.DateTimeField(default=datetime.datetime.now())
     is_active = models.BooleanField(default=True)
     is_verified = models.BooleanField(default=False)
     is_premium = models.BooleanField(default=False)
@@ -39,6 +36,9 @@ class Brand(models.Model):
 
     website = models.URLField(max_length=200, null=True, blank=True)
     video_url = models.URLField(max_length=200, null=True, blank=True)
+
+    cover = models.ImageField(upload_to='images/', null=True, blank=True)
+    logo = models.ImageField(upload_to='images/', null=True, blank=True)
 
     facebook = models.URLField(max_length=200, null=True, blank=True)
     youtube = models.URLField(max_length=200, null=True, blank=True)

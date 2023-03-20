@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('index.urls')),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
     path('branduri/', include('brand.urls')),
     path('contact/', include('contact.urls')),
     path('articole/', include('articole.urls')),
@@ -29,4 +30,3 @@ urlpatterns = [
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
