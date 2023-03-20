@@ -1,5 +1,4 @@
 from django import forms
-from djrichtextfield.widgets import RichTextWidget
 from ckeditor.widgets import CKEditorWidget
 import DataChoices.country
 from brand.models import Newsletter, Brand
@@ -33,7 +32,7 @@ class BrandForm(forms.ModelForm):
         choices=settings.FOUNDING_YEAR,
         help_text='<ht>Anul infiintarii brandului</ht>'
     )
-    motto = forms.ChoiceField(
+    motto = forms.CharField(
         required=False,
         label='Slogan',
         widget=forms.TextInput(attrs={'placeholder': 'Slogan'}),

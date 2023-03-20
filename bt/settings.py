@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'index.apps.IndexConfig',
+    'cont.apps.ContConfig',
     'brand.apps.BrandConfig',
     'contact.apps.ContactConfig',
     'articole.apps.ArticoleConfig',
@@ -73,7 +74,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bt.wsgi.application'
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -91,7 +92,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+"""
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',

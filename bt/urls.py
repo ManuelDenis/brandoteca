@@ -23,6 +23,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('index.urls')),
     path('djrichtextfield/', include('djrichtextfield.urls')),
+    path('contul-meu/', include('cont.urls')),
     path('branduri/', include('brand.urls')),
     path('contact/', include('contact.urls')),
     path('articole/', include('articole.urls')),

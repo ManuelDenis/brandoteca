@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container-lg mt-5">
+    <div class="row p-3">
+              <h6>Administrare cont</h6>
+    </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+  <div class="container-lg mb-5 rounded" style="background: rgba(242,249,255,0.51)">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="bi bi-menu-button-wide-fill" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mb-lg-0 p-1 rounded">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Branduri</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Noutati</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Promotii</a>
+          <li class="nav-item">
+          <a class="nav-link" href="#">Concursuri</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Articole</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link">Setarile contului</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+{% block account %}
+{% endblock account %}
+
+{% endblock %}

@@ -111,19 +111,10 @@
 									<!-- eof blog -->
 
 									<li>
-										<a href="">Submeniu</a>
+										<a href="">Contact</a>
 										<ul>
 											<li>
-												<a href="">Contact 1</a>
-											</li>
-											<li>
-												<a href="">Contact 2</a>
-											</li>
-											<li>
-												<a href="">Contact 3</a>
-											</li>
-											<li>
-												<a href="">Contact 4</a>
+												<a href="{% url 'message_create' %}">Contact</a>
 											</li>
 										</ul>
 									</li>
@@ -201,7 +192,7 @@
                                         <a href="" style="color: lightgrey">Articole</a>
                                         <a href="" style="color: lightgrey">Blog</a>
                                         {% if request.user.is_authenticated %}
-                                            <a href=""><i class="bi bi-person-fill text-success"></i>|{{ request.user|capfirst|truncatechars:10 }}</a>
+                                            <a href="{% url 'contul_meu' %}"><i class="bi bi-person-fill text-success"></i>|{{ request.user|capfirst|truncatechars:10 }}</a>
                                         {% else %}
                                             <a href="{% url 'account_login' %}" style="color: coral">Autentificare</a>
                                         {% endif %}
