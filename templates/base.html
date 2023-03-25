@@ -126,13 +126,13 @@
 
 
                  <li class="menu-item">
-                  <a href="#" class="menu-link">
-                      <i class="bi bi-check-circle-fill text-dark"></i> {{ request.user|capfirst }}</a>
+                  <a href="{% url 'contul_meu' %}" class="menu-link">
+                      Contul meu</a>
                  </li>
 
                    <li class="menu-item">
                   <a href="{% url 'account_logout' %}" class="menu-link">
-                       <i class="bi bi-x-circle text-dark"></i> Logout</a>
+                       Logout</a>
                    </li>
 
                   {% else %}

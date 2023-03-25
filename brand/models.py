@@ -5,7 +5,6 @@ from django.db import models
 from autoslug import AutoSlugField
 from django.utils import timezone
 import DataChoices.country
-from bt import settings
 from cloudinary.models import CloudinaryField
 
 
