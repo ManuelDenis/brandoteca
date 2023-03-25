@@ -58,7 +58,7 @@ class Brand(models.Model):
 
     type = models.CharField(max_length=20, choices=DataChoices.country.BRAND_TYPES, null=True, blank=True)
     main_category = models.CharField(max_length=105, choices=DataChoices.country.BRAND_CATEGORY, null=True, blank=True)
-    categories = models.ManyToManyField(Categories, null=True, blank=True)
+    categories = models.ManyToManyField(Categories)
 
     country = models.CharField(max_length=50, choices=DataChoices.country.COUNTRY, null=True, blank=True)
     city = models.CharField(max_length=100, choices=DataChoices.country.ORASE, default='Bucuresti', null=True, blank=True)
