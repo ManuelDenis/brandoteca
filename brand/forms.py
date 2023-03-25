@@ -1,8 +1,8 @@
 from django import forms
 from ckeditor.widgets import CKEditorWidget
 import DataChoices.country
-from brand.models import Newsletter, Brand
-from bt import settings
+from brand.models import Newsletter, Brand, Categories
+from cloudinary.forms import CloudinaryFileField
 
 
 class NewsletterForm(forms.ModelForm):
@@ -13,6 +13,7 @@ class NewsletterForm(forms.ModelForm):
 
 class BrandForm(forms.ModelForm):
     name = forms.CharField(
+        required=True,
         max_length=64,
         label='Nume brand',
         widget=forms.TextInput(attrs={'placeholder': 'Brand', 'class': 'form-control'}),
@@ -20,16 +21,18 @@ class BrandForm(forms.ModelForm):
     )
 
     type = forms.ChoiceField(
+        required=False,
         label='Tip brand',
-        choices=settings.BRAND_TYPES,
+        choices=DataChoices.country.BRAND_TYPES,
         widget=forms.Select(attrs={
             'class': 'bootstrap-select',
         }),
         help_text='<ht>Tipul brandului</ht>'
     )
     founding_year = forms.ChoiceField(
+        required=False,
         label='An aparitie brand',
-        choices=settings.FOUNDING_YEAR,
+        choices=DataChoices.country.FOUNDING_YEAR,
         help_text='<ht>Anul infiintarii brandului</ht>'
     )
     motto = forms.CharField(
@@ -39,25 +42,28 @@ class BrandForm(forms.ModelForm):
         help_text='<ht>Sloganul brandului. Maxim 200 caractere</ht>'
     )
     main_category = forms.ChoiceField(
+        required=False,
         label='Categorie principala',
         choices=DataChoices.country.BRAND_CATEGORY,
         widget=forms.Select(attrs={'placeholder': 'Tip brand*'}),
         help_text='<ht>Categoria principala a brandului</ht>'
     )
-    categories = forms.MultipleChoiceField(
+    categories = forms.ModelMultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple(),
-        choices=DataChoices.country.BRAND_CATEGORY,
+        queryset=Categories.objects.all(),
         label='Categorii suplimentare',
         help_text='<ht>Adauga categorii suplimentare</ht>'
     )
     description = forms.CharField(
         widget=CKEditorWidget(),
+        required=False,
         label='',
         help_text='<ht>Text ce va fi afișat în pagina brandului. Trebuie să aibă între 300 și 2000 de caractere.</ht>'
     )
 
     entity = forms.CharField(
+        required=False,
         label='Denumirea identitatii juridice',
         help_text='<ht>Numele complet al firmei. Max 200 caractere.</ht>',
         widget=forms.TextInput(attrs={'placeholder': 'denumire'})
@@ -101,11 +107,13 @@ class BrandForm(forms.ModelForm):
         help_text='<ht>Tara</ht>'
     )
     email = forms.EmailField(
+        required=False,
         label='Adresa de email',
         widget=forms.EmailInput(attrs={'placeholder': 'email@email.ro'}),
         help_text='<ht>Email de contact. Max 254 caractere</ht>'
     )
     phone = forms.CharField(
+        required=False,
         label='Numar de telefon',
         widget=forms.TextInput(attrs={'placeholder': '07...'}),
         help_text='<ht>Telefonul de contact. Fix 10 caractere</ht>'
@@ -147,21 +155,22 @@ class BrandForm(forms.ModelForm):
         widget=forms.URLInput(attrs={'placeholder': 'pagina de instagram'}),
         help_text='<ht>Link Instagram. Max 200 caractere</ht>'
     )
-    cover = forms.ImageField(
+    cover = CloudinaryFileField(
         required=False,
-        label='Imagine coperta',
-        widget=forms.FileInput(attrs={'placeholder': 'Selecteaza imagine de coperta'}),
-        help_text='<ht>Upload imagine de copertă. Rezoluție recomandată: 1920x400. Daca nu vei încarca o imagine de copertă se va afișa automat o imagine implicită a platformei.</ht>'
     )
-    logo = forms.FileField(
-        widget=forms.ClearableFileInput(attrs={
-            'multiple': False,
-        }),
-        label='Selectează logo',
+    logo = CloudinaryFileField(
         required=False,
+    )
+
+    terms = forms.BooleanField(
+        required=True,
+        widget=forms.CheckboxInput()
     )
 
     class Meta:
         model = Brand
-        exclude = ['user', 'id', 'is_verified', 'slug', 'created_at', 'updated_at', 'is_active', 'is_verified', 'is_premium', 'is_brand_of_the_month']
-
+        fields = ['name', 'motto', 'founding_year',
+                  'address', 'email', 'phone', 'entity', 'vat_number', 'reg_no', 'euid',
+                  'website', 'video_url', 'facebook', 'youtube', 'linkedin', 'instagram',
+                  'type', 'main_category', 'categories', 'country', 'city', 'terms',
+                  'cover', 'logo', 'description']

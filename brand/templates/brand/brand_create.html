@@ -5,6 +5,8 @@
 {% load account socialaccount %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% load cloudinary %}
+
 
 {% block head_title %}Creeaza brand{% endblock %}
 
@@ -13,15 +15,15 @@
     <div class="container my-5">
           <div class="row my-5 p-1">
               <h5 class="bolder">Adaugare brand</h5>
-              <div class="col-lg-7 text-danger" style="color: white">
-                  <p><strong><i class="bi bi-exclamation-circle bold"></i> IMPORTANT:</strong> Pentru a putea fi listat în Brandoteca, brandul trebuie să aibă cel puțin o persoană de naționalitate română în echipa inițială care a creat brandul respectiv (asociați).</p>
+              <div class="col-lg-7 text-warning" style="color: white">
+                  <p class="bolder"><i class="bi bi-exclamation-circle bold"></i> IMPORTANT: Pentru a putea fi listat în Brandoteca, brandul trebuie să aibă cel puțin o persoană de naționalitate română în echipa inițială care a creat brandul respectiv (asociați).</p>
               </div>
           </div>
         <div class="row my-5 p-1">
               <form method="POST" enctype="multipart/form-data">
                   {% csrf_token %}
 
-                  <div class="row rounded shadow py-3">
+                  <div class="row rounded shadow py-3 ">
                       <h5 class="rounded bg-secondary"><strong>1.</strong> Informatii generale</h5>
 
                       <div class="col-lg-4">
@@ -44,10 +46,10 @@
                           {{ form.main_category|as_crispy_field }}
                       </div>
                       <div class="col-lg-6" style="height:200px; overflow-y: scroll">
-                          {{ form.categories|as_crispy_field }}
+                          {{ form.categories }}
                       </div>
                       <div class="col-lg-12 mt-5 text-center">
-                          <p>Descriere brand</p>
+                          <p>Descriere brand*</p>
                           {{ form.media }}
                           {{ form.description|as_crispy_field }}
                       </div>
@@ -106,14 +108,15 @@
                   <div class="row rounded shadow py-3">
                       <h5 class="rounded bg-secondary"><strong>4.</strong> Imagini</h5>
                       <div class="col-lg-6">
-                          {{ form.logo|as_crispy_field }}
+                          {{ form.logo }}
                       </div>
                       <div class="col-lg-6">
-                          {{ form.cover|as_crispy_field }}
+                          {{ form.cover }}
                       </div>
                   </div>
-
-                  <button type="submit" class="new-button my-3" value="Submit">Adauga brand</button>
+                  <p class="mt-5 d-block"><i class="bi bi-exclamation-square-fill text-warning"></i> Câmpurile marcate cu * sunt obligatorii.<br>
+                      {{ form.terms }} Am citit și voi respecta <a href="" class="bolder">termenele și condițiile.</a></p>
+                  <button type="submit" class="new-button my-3" value="Submit">Salveaza</button>
               </form>
 
 
