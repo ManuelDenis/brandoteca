@@ -2,17 +2,12 @@
 
 {% block content %}
 
-    <div class="container-lg mt-5">
-    <div class="row pl-3">
-              <h6>Administrare cont</h6>
 
-    </div>
-    </div>
-
-    <nav class="navbar navbar-expand-lg">
-  <div class="container-lg mb-3 rounded" style="background: rgba(242,249,255,0.51)">
+<div class="container-lg p-3">
+    <nav class="navbar navbar-expand-lg mt-3">
+  <div class="container-lg mb-3 rounded">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span><i class="bi bi-list" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+      <span style="font-size: 25px"><i class="bi bi-list" style="font-size: 25px; color: cornflowerblue;"></i> Menu</span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mb-lg-0 p-1 rounded">
@@ -38,10 +33,10 @@
     </div>
   </div>
 </nav>
+</div>
 
     <div class="container-lg">
     <div class="row p-3">
-        <h5 class="pl-3">Branduri</h5>
             <a href="{% url 'brand_create' %}"><i class="bi bi-plus-square-fill text-primary"></i> Adauga brand</a>
     <hr>
     {% if brand_list %}
@@ -49,14 +44,15 @@
         {% for brand in brand_list %}
             <div class="mb-4">
 
-             <div class="cont" {% if brand.is_premium %}style="background: rgba(233,255,222,0.98)" {% endif %}>
-                 Brand: <strong>{{ brand.name }}</strong><br>
+             <div class="cont" {% if brand.is_premium %} style="background: rgba(233,255,222,0.98)" {% endif %}>
+                 <h5><strong>{{ brand.name }}</strong></h5><br>
 
                     {% if brand.is_premium %}
                  <i class="bi bi-bookmark-star-fill text-danger"></i> | Premium<br>
                     {% else %}
-                 Activ <i class="bi bi-check-circle-fill text-success"></i> | Comercial (Free)<br><br>
-                 <span class="badge text-bg-warning">Activeaza</span> Premium (50 Lei/month)<br>
+                 <i class="bi bi-check-circle-fill text-success"></i> | Comercial (Free)<br>
+                 <i class="bi bi-check-circle-fill text-secondary"></i> | Premium (50 Lei/month) |
+                        <span class="badge text-bg-warning">Activeaza</span><br>
                     {% endif %}
             {% if brand.is_brand_of_the_month %}
                 <i class="bi bi-award-fill text-info"></i> | Brand of the month<br>
