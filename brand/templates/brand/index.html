@@ -52,21 +52,21 @@
 							<div class="main-content text-center">
 								<div class="img-wrap text-center">
 								</div>
-								<h5>
+								<h4 class="bolder">
 									Dedicați brandurilor românești
-								</h5>
+								</h4>
 								<p>
                                       IMM-urile sunt cele care asigură creșterea economică organică. În lipsa vizibilității, multe startup-uri și branduri românești sunt condamnate la dispariție.
-                                    <strong><br><br>Brandoteca – Biblioteca Brandurilor Românești<br></strong>te ajută să spui povestea brandului tău. Alege să fii un Brand, nu doar un SRL.<br><strong class="text-danger">Listează-ți brandul GRATUIT</strong> și bucură-te de publicitate națională & internațională!
+                                    <strong><br><br>Brandoteca<br>Biblioteca Brandurilor Românești<br></strong>te ajută să spui povestea brandului tău. Alege să fii un Brand, nu doar un SRL.<br><strong class="text-danger"><a href="{% url 'contul_meu' %}" class="text-primary"> Listează-ți brandul GRATUIT</a></strong> și bucură-te de publicitate națională & internațională!
 								</p>
 								</div>
 							</div>
 						</div>
 			</section>
-			<section class="s-pt-130 s-pt-md-50 ls mb-5 p-2">
+			<section class="s-pt-130 s-pt-md-50 ls">
 				<div class="container">
 					<div class="row">
-						<div style="background: rgba(217,156,1,0.08); border-radius: 25px" class="pt-5 text-center col-md-12 justify-content-center text-block">
+						<div style="background: rgba(217,156,1,0.08); border-radius: 25px 25px 0 0" class="pt-5 text-center col-md-12 justify-content-center text-block">
 							<div class="content">
 								<h3>
 									Lets Get Started
@@ -90,6 +90,31 @@
 					</div>
 				</div>
 			</section>
+
+    <div class="container-lg py-5 bg-darkgrey" style="border-radius: 25px">
+    <div class="row py-5 g-3" style="border-radius: 0 50px 0 50px">
+        <h1 class="bolder p-3 text-center" style="line-height: 1; font-weight: 700; font-size: 60px"><small class="text-lowercase" style="font-weight: 100; position: relative; top: 10px">Ultimele</small><br><strong class="text-danger">branduri</strong><br><small style="position: relative; left: 25px; bottom: 10px">adaugate</small></h1>
+
+        {% for brand in brands %}
+            <div class="col-lg-3">
+
+      <div class="card h-100 p-2 py-3" style="border-radius: 25px">
+          {% if brand.is_premium %}<div class="top-left shadow">Premium</div>{% endif %}
+            <img style="height: 120px; object-fit: contain; border-radius: 25px 25px 5px 5px" src="{{ brand.logo.url }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="bolder text-dark">{{ brand.name }}</h5>
+        <h6 class="card-text text-dark small-text-card small">{{ brand.motto }}</h6>
+      </div>
+      <div class="card-footer p-3 bg-transparent text-center" style="border-radius: 10px 10px 25px 25px; line-height: 1">
+        <p class="small-text-card text-dark text-secondary">{{ brand.main_category }}</p>
+      </div>
+    </div>
+
+  </div>
+        {% endfor %}
+    </div>
+    </div>
+
 
 
     <div class="container">

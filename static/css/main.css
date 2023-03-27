@@ -133,10 +133,29 @@ body {
         padding: 15px 0 0 0;
 }
 
-.card-brand {
+.card {
 	border-radius: 25px;
-	background: lightcyan;
-	margin-top: 50px;
+	border-style: none;
+}
+.top-left {
+    position: absolute;
+	padding: 2px 10px 2px 10px;
+	border-radius: 0 17px 0 17px;
+    top: 12px;
+    left: -7px;
+	background: #f8021f;
+	color: white;
+	font-size: 12px;
+	font-weight: bolder;
+}
+.small {
+	font-size: small;
+	line-height: 1;
+}
+.small-text-card {
+	font-size: 15px;
+	font-weight: bolder;
+	letter-spacing: -1px;
 }
 
 #ads .card-detail-badge {
