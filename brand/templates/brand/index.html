@@ -5,7 +5,7 @@
 {% block content %}
 
 
-			<section class="page_slider main_slider">
+	<section class="page_slider main_slider">
 				<div class="flexslider" data-nav="false" data-dots="false">
 					<ul class="slides">
 						<li class="ds text-center slide1">
@@ -45,60 +45,33 @@
 					<a href="#about" class="mouse-button animated floating"></a>
 				</div>
 			</section>
-			<section id="about">
-				<div class="divider-5 d-none d-xl-block"></div>
-					<div class="row p-2">
-						<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-							<div class="main-content text-center">
-								<div class="img-wrap text-center">
-								</div>
-								<h4 class="bolder">
-									Dedicați brandurilor românești
-								</h4>
-								<p>
-                                      IMM-urile sunt cele care asigură creșterea economică organică. În lipsa vizibilității, multe startup-uri și branduri românești sunt condamnate la dispariție.
-                                    <strong><br><br>Brandoteca<br>Biblioteca Brandurilor Românești<br></strong>te ajută să spui povestea brandului tău. Alege să fii un Brand, nu doar un SRL.<br><strong class="text-danger"><a href="{% url 'contul_meu' %}" class="text-primary"> Listează-ți brandul GRATUIT</a></strong> și bucură-te de publicitate națională & internațională!
-								</p>
-								</div>
-							</div>
-						</div>
-			</section>
-			<section class="s-pt-130 s-pt-md-50 ls">
-				<div class="container">
-					<div class="row">
-						<div style="background: rgba(217,156,1,0.08); border-radius: 25px 25px 0 0" class="pt-5 text-center col-md-12 justify-content-center text-block">
-							<div class="content">
-								<h3>
-									Lets Get Started
-									<br> Your Project
-								</h3>
-								<p class="bolder">
-									We’ll help to achieve your goals and to grow business
-								</p>
-								<div class="divider-30"></div>
-							</div>
-							<div>
-								<div class="divider-40"></div>
-								<a href="#" class="btn">Let’s Talk!</a>
-								<div class="divider-30"></div>
-							</div>
-							<div class="img-wrap overflow-visible">
-								<div class="divider-5 d-none d-xl-block"></div>
-							</div>
-						</div>
+    <div class="container-lg py-5 rounded">
+    <div class="row justify-content-center g-3 p-3 py-5" style="padding: 50px 0 50px 0">
+        <div class="col-lg-5 bg-secondary m-2" style="border-radius: 35px">
+        <h1 class="bolder p-3 text-center" style="line-height: 1; font-weight: 700; font-size: 55px; letter-spacing: -4px"><small class="text-lowercase" style="font-weight: 100; position: relative; top: 10px">dedicati</small><br><strong class="text-danger">brandurilor</strong><br><small style="position: relative; left: 25px; bottom: 10px">romanesti</small></h1>
+        </div>
+        <div class="col-lg-5 p-3 m-2" style="border-left: 3px solid orangered; border-radius: 35px 0 0 35px">
+            <div style="line-height: 1; padding: 15px; font-size: 25px">IMM-urile sunt cele<br> care asigură<br> creșterea economică organică<br>În lipsa vizibilității,<br> multe startup-uri<br> și branduri românești<br> sunt condamnate la dispariție</div>
+        </div>
+    </div>
+    </div>
+    <div class="container-lg bg-darkgrey" style="border-radius: 50px 50px 0 0">
+    <div class="row justify-content-center py-5 rounded">
 
-					</div>
-				</div>
-			</section>
-
-    <div class="container-lg py-5 bg-darkgrey" style="border-radius: 25px">
+        <div class="col-lg-10 p-3">
+            <h2 class="text-start text-warning" style="letter-spacing: -1px; font-weight: 700; padding: 15px; line-height: 1"><strong style="font-weight: 700"><br>Biblioteca Brandurilor Românești<br></strong><div style="font-weight: 100; color: #ffe4e8">te ajută să spui<br> povestea brandului tău.<br>Alege să fii un Brand,<br>nu doar un SRL</div></h2>
+            <h6 style="border-left: 3px solid orangered; padding: 15px"><strong><a href="{% url 'brand_create' %}" class="text-primary">Listează-ți brandul GRATUIT</a><br></strong> și bucură-te de publicitate națională & internațională!</h6>
+        </div>
+    </div>
+    </div>
+    <div class="container-lg py-5 p-3" style="border-radius: 0 0 50px 50px; background: #3c3c3d">
     <div class="row py-5 g-3" style="border-radius: 0 50px 0 50px">
-        <h1 class="bolder p-3 text-center" style="line-height: 1; font-weight: 700; font-size: 60px"><small class="text-lowercase" style="font-weight: 100; position: relative; top: 10px">Ultimele</small><br><strong class="text-danger">branduri</strong><br><small style="position: relative; left: 25px; bottom: 10px">adaugate</small></h1>
+        <h1 class="bolder p-3 text-center" style="line-height: 1; font-weight: 700; font-size: 60px"><small class="text-lowercase" style="font-weight: 100; position: relative; top: 10px; color: lightgrey">Ultimele</small><br><strong class="text-danger">branduri</strong><br><small style="position: relative; left: 25px; bottom: 10px; color: lightcyan">adaugate</small></h1>
 
         {% for brand in brands %}
-            <div class="col-lg-3">
+            <div class="col-lg-4">
 
-      <div class="card h-100 p-2 py-3" style="border-radius: 25px">
+      <div class="card h-100 p-2 py-3" style="border-radius: 70px 5px 70px 5px">
           {% if brand.is_premium %}<div class="top-left shadow">Premium</div>{% endif %}
             <img style="height: 120px; object-fit: contain; border-radius: 25px 25px 5px 5px" src="{{ brand.logo.url }}" class="card-img-top" alt="...">
       <div class="card-body">
@@ -117,7 +90,7 @@
 
 
 
-    <div class="container">
+    <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-5 text-center" data-animation="fadeInUp">
 							<div>

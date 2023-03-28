@@ -11,7 +11,7 @@ class IndexView(CreateView, ListView):
     success_url = '/'
 
     def get(self, request, *args, **kwargs):
-        brands = Brand.objects.all().order_by('-created_at')[:4]
+        brands = Brand.objects.all().order_by('-created_at')[:3]
         context = {'form': NewsletterForm(), 'brands': brands}
         return render(request, 'brand/index.html', context)
 
