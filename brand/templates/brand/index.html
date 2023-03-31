@@ -5,58 +5,35 @@
 {% block content %}
 
 
-	<section class="page_slider main_slider">
-				<div class="flexslider" data-nav="false" data-dots="false">
-					<ul class="slides">
-						<li class="ds text-center slide1">
-							<span class="flexslider-overlay"></span>
-							<span class="lg">
-								<img src="/static/images/banner.webp" alt=""/>
-							</span>
-							<div class="container">
-								<div class="row">
-									<div class="col-lg-12 intro_slider">
-										<div class="intro_layers_wrapper">
-											<div class="intro_layers">
-												<div class="intro_layer" data-animation="fadeIn">
-													<p class="text-warning bolder" style="font-size: 20px">Biblioteca brandurilor romanesti</p>
-												</div>
 
-												<div class="intro_layer py-5" data-animation="slideRight">
-														<img src="/static/images/brandotecalogowhite.png" alt="" style="height: 50px">
-												</div>
-												<div class="intro_layer page-bottom" data-animation="expandUp">
-													<a class="btn btn-maincolor" href="">Get Started</a>
-												</div>
-											</div>
-											<!-- eof .intro_layers -->
-										</div>
-										<!-- eof .intro_layers_wrapper -->
-									</div>
-									<!-- eof .col-* -->
-								</div>
-								<!-- eof .row -->
+    <section>
+				<div class="container-lg has-bg-img">
+					<div class="row z-index-1 position-relative">
+
+						<div class="col-lg-12">
+							<h1 class="small-title">Title 5</h1>
+                            <div class="intro_layer" data-animation="fadeIn">
+							<p class="text-warning bolder" style="font-size: 20px">Biblioteca brandurilor romanesti</p>
 							</div>
-						</li>
-					</ul>
-				</div>
+						</div>
 
-				<div class="flexslider-bottom d-none d-xl-block">
-					<a href="#about" class="mouse-button animated floating"></a>
+					</div>
+                                        <img class="bg-img" src="/static/images/banner.webp" alt="...">
 				</div>
 			</section>
-    <div class="container-lg py-5 rounded">
+
+    <div class="container-lg py-5 bg-warning" style="border-radius: 50px">
     <div class="row justify-content-center g-3 p-3 py-5" style="padding: 50px 0 50px 0">
         <div class="col-lg-5 bg-secondary m-2 shadow" style="border-radius: 35px">
-        <h1 class="bolder p-3 text-center" style="line-height: 1; font-weight: 700; font-size: 55px; letter-spacing: -4px"><small class="text-lowercase" style="font-weight: 100; position: relative; top: 10px">dedicati</small><br><strong style="color: red">brandurilor</strong><br><small style="position: relative; left: 25px; bottom: 10px">romanesti</small></h1>
+        <h1 class="bolder p-3 text-center" style="line-height: 1; font-weight: 700; font-size: 55px; letter-spacing: -4px"><small class="text-lowercase" style="font-weight: 100; position: relative; top: 10px">dedicati</small><br><strong style="color: #f8603f">brandurilor</strong><br><small style="position: relative; left: 25px; bottom: 10px">romanesti</small></h1>
         </div>
-        <div class="col-lg-5 p-3 m-2" style="border-left: 3px solid orangered; border-radius: 35px 0 0 35px">
+        <div class="col-lg-5 p-3 m-2" style="border-left: 3px solid #f8603f; border-radius: 35px 0 0 35px">
             <div style="line-height: 1; padding: 15px; font-size: 25px">IMM-urile sunt cele<br> care asigură<br> creșterea economică organică<br>În lipsa vizibilității,<br> multe startup-uri<br> și branduri românești<br> sunt condamnate la dispariție</div>
         </div>
     </div>
     </div>
     <div class="container-lg bg-darkgrey" style="border-radius: 50px 50px 0 0">
-    <div class="row position-absolute p-3 m-1 mt-3" style="border-radius: 50px 0 50px 0; background: red">
+    <div class="row position-absolute p-3 m-1 mt-3" style="border-radius: 50px 0 50px 0; background: #f8603f">
             <h6>Listare gratuita</h6>
     </div>
     <div class="row justify-content-center py-5 rounded mt-5">
@@ -69,7 +46,7 @@
     </div>
     <div class="container-lg py-5 p-3" style="border-radius: 0 0 50px 50px; background: #3c3c3d">
     <div class="row py-5 g-3" style="border-radius: 0 50px 0 50px">
-        <h1 class="bolder p-3 text-center" style="line-height: 1; font-weight: 700; font-size: 60px"><small class="text-lowercase" style="font-weight: 100; position: relative; top: 10px; color: lightgrey">Ultimele</small><br><strong style="color: red">branduri</strong><br><small style="position: relative; left: 25px; bottom: 10px; color: lightcyan">adaugate</small></h1>
+        <h1 class="bolder p-3 text-center" style="line-height: 1; font-weight: 700; font-size: 60px"><small class="text-lowercase" style="font-weight: 100; position: relative; top: 10px; color: lightgrey">Ultimele</small><br><strong style="color: #f8603f">branduri</strong><br><small style="position: relative; left: 25px; bottom: 10px; color: lightcyan">adaugate</small></h1>
 
         {% for brand in brands %}
             <div class="col-lg-4">
